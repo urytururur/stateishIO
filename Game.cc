@@ -6,17 +6,13 @@
 using namespace std;
 
 Game::Game():
-    gameWindow{800, 800, "StateishIO"}, nodes{}, playerToColorMapper{}, nodeBattles{}
+    gameWindow{800, 800, "StateishIO"}, nodes{}, playerToColorMapper{}, nodeBattles{}, selectedNodes{}
 {
-    nodes.push_back(Node{gameWindow, 40.f, 1, 100, 700, playerToColorMapper});
-    nodes.push_back(Node{gameWindow, 60.f, 1, 100, 100, playerToColorMapper});
+    nodes.push_back(Node{gameWindow, 30.f, 1, 100, 700, playerToColorMapper});
     nodes.push_back(Node{gameWindow, 30.f, 2, 700, 100, playerToColorMapper});
-    nodes.push_back(Node{gameWindow, 40.f, 0, 400, 400, playerToColorMapper});
-    nodes.push_back(Node{gameWindow, 40.f, 0, 300, 300, playerToColorMapper});
-    nodes.push_back(Node{gameWindow, 40.f, 0, 500, 500, playerToColorMapper});
-
-    nodeBattles.push_back({nodes.at(0), nodes.at(2)});
-	nodeBattles.push_back({nodes.at(1), nodes.at(2)});
+    nodes.push_back(Node{gameWindow, 10.f, 0, 400, 400, playerToColorMapper});
+    nodes.push_back(Node{gameWindow, 10.f, 0, 200, 200, playerToColorMapper});
+    nodes.push_back(Node{gameWindow, 10.f, 0, 600, 600, playerToColorMapper});
 }
 
 void Game::run()
@@ -31,41 +27,46 @@ void Game::run()
         render();
         gameWindow.display();
 
-        sf::sleep(sf::milliseconds(256));
+        sf::sleep(sf::milliseconds(16));
     }
 }
 
 void Game::update()
 {
     //rensa ur alla som inte längre är våra
-    for(list<Node>::iterator it{selected.begin()}; it != selecte.end(); ++it)
+    for(list<Node*>::iterator it{selectedNodes.begin()}; it != selectedNodes.end(); ++it)
     {
-        if(it->getBelongsTo() != 1)
+        if((*it)->getBelongsTo() != 1)
         {
             selectedNodes.erase(it);
             --it;
         }
     }
-
-    if(gameWindow.unhandeledMouseClick())
+	
+cout << 0 << endl;
+    if(gameWindow.getUnhandeledMouseClick())
     {
+	cout << 1 << endl;
         pair<float, float> coords{gameWindow.getMouseClickCoords()};
 
         for(Node & node : nodes)
         {
             //kolla kollision
-            if(isCollision({coords.first, coords.second}, node.shape.getGlobalBounds()))
+            if(isCollision({coords.first, coords.second}, node.getBounds()))
             {
                 if(node.getBelongsTo() == 1) //god nod
                 {
-                    selectedNodes.push_back(node);
+                	selectedNodes.push_back(&node);
+			node.setSelected(true);
                 }
                 else                         //ond nod
                 {
-                    for(Node & selectedNode : selectedNodes)
+                    for(Node* const  selectedNode : selectedNodes)
                     {
-                        nodeBattles.push_back({selectedNode, node});
+                        nodeBattles.push_back({*selectedNode, node});
+			selectedNode->setSelected(false);
                     }
+			selectedNodes.clear();
                 }
             }
         }
@@ -99,14 +100,14 @@ void Game::render()
     */
 }
 
-bool isCollision(pair<float, float> const mouseCoords, sf::FloatRect const& spriteCoords)
+bool Game::isCollision(pair<float, float> const mouseCoords, sf::FloatRect const& spriteCoords) const
 {
-    if(mouseCoods.first >= spriteCoords.left &&
-    mouseCoords.first <= spriteCoords.left + spriteCoods.width &&
+    if(mouseCoords.first >= spriteCoords.left &&
+    mouseCoords.first <= spriteCoords.left + spriteCoords.width &&
     mouseCoords.second >= spriteCoords.top &&
     mouseCoords.second <= spriteCoords.top + spriteCoords.height)
     {
-        return true
+        return true;
     }
     return false;
 }

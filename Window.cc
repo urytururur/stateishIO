@@ -1,6 +1,7 @@
 #include "Window.h"
 #include "SFML/Graphics.hpp"
 #include <string>
+#include <iostream>
 
 using namespace std;
 
@@ -19,11 +20,9 @@ void Window::checkIfClosed()
 
             else if (event.type == sf::Event::MouseButtonPressed)
             {
-                if (event.mouseButton.button == sf::Mouse::Right)
-                {
-                    mouseClickCoords = {event.mouseButton.x, event.mouseButton.y};
-                    unhandeledMouseClick = true;
-                }
+		cout << "TRYCK!!!!" << endl;
+                mouseClickCoords = {event.mouseButton.x, event.mouseButton.y};
+            	unhandeledMouseClick = true;
             }
         }
     }

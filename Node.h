@@ -14,6 +14,7 @@ private:
     float x;
     float y;
     PlayerToColorMapper& playerToColorMapper;
+	bool selected;
 public:
     Node(Window & gameWindow, float const size, int const belongsTo,
      float const x, float const y, PlayerToColorMapper & playerToColorMapper);
@@ -25,4 +26,6 @@ public:
     void setBelongsTo(int const playerId);
 	float getSize() const;
 	void resetSizeToZero();
+	sf::FloatRect getBounds() const;
+	void setSelected(bool const value);
 };
