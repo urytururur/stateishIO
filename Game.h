@@ -1,14 +1,17 @@
 #pragma once
 
 #include "Window.h"
+#include <vector>
 
 class Game
 {
 private:
     Window gameWindow;
+    vector<Node> nodes;
 public:
     Game();
     void run();
-    //void update();
-    //void render();
+private:
+    void update();
+    void render();
 };

@@ -14,5 +14,7 @@ private:
     sf::RenderWindow window;
 public:
     Window(int const width, int const height, std::string const& title);
-    void render();
+    void checkIfClosed();
+    void clear();
+    void display();
 };

@@ -7,7 +7,7 @@ using namespace std;
 Window::Window(int const width, int const height, string const& title):
     width{width}, height{height}, title{title}, window{sf::VideoMode(width, height), title} {}
 
-void Window::render()
+void Window::checkIfClosed()
 {
     if(window.isOpen())
     {
@@ -17,9 +17,15 @@ void Window::render()
             if (event.type == sf::Event::Closed)
                 window.close();
         }
-
-        window.clear();
-        window.display();
     }
 }
 
+void Window::clear()
+{
+    window.clear();
+}
+
+void Window::display()
+{
+    window.display();
+}
