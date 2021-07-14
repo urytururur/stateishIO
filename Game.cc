@@ -6,7 +6,7 @@
 using namespace std;
 
 Game::Game():
-    gameWindow{800, 800, "StateishIO"}, nodes{}, playerToColorMapper{}, nodeBattles{}, selectedNodes{}
+    gameWindow{800, 800, "StateishIO"}, nodes{}, playerToColorMapper{}, nodeBattles{}, selectedNodes{}, ImgHandler{}
 {
     nodes.push_back(Node{gameWindow, 30.f, 1, 100, 700, playerToColorMapper});
     nodes.push_back(Node{gameWindow, 30.f, 2, 700, 100, playerToColorMapper});
@@ -63,7 +63,7 @@ cout << 0 << endl;
                 {
                     for(Node* const  selectedNode : selectedNodes)
                     {
-                        nodeBattles.push_back({*selectedNode, node});
+                        nodeBattles.push_back(NodeBattle{*selectedNode, node, imgHandler});
 			selectedNode->setSelected(false);
                     }
 			selectedNodes.clear();

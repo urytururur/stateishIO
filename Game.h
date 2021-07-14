@@ -6,6 +6,7 @@
 #include "Node.h"
 #include "PlayerToColorMapper.h"
 #include "NodeBattle.h"
+#include "ImgHandler.h"
 
 class Game
 {
@@ -15,6 +16,7 @@ private:
     PlayerToColorMapper playerToColorMapper;
     std::list<NodeBattle> nodeBattles;
 	std::list<Node*> selectedNodes;
+    ImgHandler imgHandler;
 public:
     Game();
     void run();

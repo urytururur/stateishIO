@@ -29,7 +29,7 @@ void Window::checkIfClosed()
 
 void Window::clear()
 {
-    window.clear(sf::Color(255, 255, 255, 255));
+    window.clear(sf::Color(242, 234, 203, 255));
 }
 
 void Window::display()

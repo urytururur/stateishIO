@@ -1,7 +1,7 @@
 #include "NodeBattle.h"
 
-NodeBattle::NodeBattle(Node & attacker, Node & defender):
-    attacker{attacker}, defender{defender}, isDone{false} {}
+NodeBattle::NodeBattle(Node & attacker, Node & defender, ImgHandler const& imgHandler, sf::Sprite & sprite):
+    attacker{attacker}, defender{defender}, isDone{false}, imgHandler{imgHandler}, sprite{imgHandler.provideTexture("./img/fire/blue/spritesheet-512px-by197px-per-frame.png")} {}
 
 void NodeBattle::update()
 {
@@ -20,12 +20,11 @@ void NodeBattle::update()
     defender.shrink(2);
 }
 
-/*
 void NodeBattle::render()
 {
-
+    sprite.setPosition(300.f, 400.f);
+    gameWindow.draw(sprite);
 }
-*/
 
 bool NodeBattle::getIsDone() const
 {
