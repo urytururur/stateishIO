@@ -17,4 +17,6 @@ public:
     void checkIfClosed();
     void clear();
     void display();
+
+sf::RenderWindow& getWindow();
 };

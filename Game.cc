@@ -7,7 +7,7 @@ using namespace std;
 Game::Game():
     gameWindow{800, 800, "StateishIO"}, nodes{}
 {
-    nodes.push_back(Node{gameWindow, 100.f, 100.f, 1, 10, 400, 400});
+    nodes.push_back(Node{gameWindow, 100.f, 1, 10, 400, 400});
 }
 
 void Game::run()
@@ -26,7 +26,7 @@ void Game::run()
     }
 }
 
-void update()
+void Game::update()
 {
     for(Node & node : nodes)
     {
@@ -34,7 +34,7 @@ void update()
     }
 }
 
-void render()
+void Game::render()
 {
     for(Node & node : nodes)
     {

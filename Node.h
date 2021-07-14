@@ -1,4 +1,4 @@
-#include "SFML/Graphics"
+#include "SFML/Graphics.hpp"
 #include "Window.h"
 
 class Node
@@ -13,7 +13,7 @@ private:
     float x;
     float y;
 public:
-    Node(Window const& gameWindow, float const spriteSize, int const belongsTo, int const strength, int const x, int const y);
+    Node(Window & gameWindow, float const spriteSize, int const belongsTo, int const strength, float const x, float const y);
     void update();
     void render();
-}
+};
