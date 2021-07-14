@@ -20,7 +20,6 @@ void Window::checkIfClosed()
 
             else if (event.type == sf::Event::MouseButtonPressed)
             {
-		cout << "TRYCK!!!!" << endl;
                 mouseClickCoords = {event.mouseButton.x, event.mouseButton.y};
             	unhandeledMouseClick = true;
             }
@@ -30,7 +29,7 @@ void Window::checkIfClosed()
 
 void Window::clear()
 {
-    window.clear();
+    window.clear(sf::Color(255, 255, 255, 255));
 }
 
 void Window::display()
