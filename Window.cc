@@ -29,3 +29,9 @@ void Window::display()
 {
     window.display();
 }
+
+sf::RenderWindow& Window::getWindow()
+{
+	return window;
+}
+

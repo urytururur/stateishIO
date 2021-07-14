@@ -2,12 +2,13 @@
 
 #include "Window.h"
 #include <vector>
+#include "Node.h"
 
 class Game
 {
 private:
     Window gameWindow;
-    vector<Node> nodes;
+    std::vector<Node> nodes;
 public:
     Game();
     void run();
