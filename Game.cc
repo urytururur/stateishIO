@@ -5,13 +5,13 @@
 using namespace std;
 
 Game::Game():
-    gameWindow{800, 800, "StateishIO"}, nodes{}
+    gameWindow{800, 800, "StateishIO"}, nodes{}, playerToColorMapper{}
 {
-    nodes.push_back(Node{gameWindow, 40.f, 1, 100, 700});
-    nodes.push_back(Node{gameWindow, 40.f, 2, 700, 100});
-    nodes.push_back(Node{gameWindow, 40.f, 0, 400, 400});
-    nodes.push_back(Node{gameWindow, 40.f, 0, 300, 300});
-    nodes.push_back(Node{gameWindow, 40.f, 0, 500, 500});
+    nodes.push_back(Node{gameWindow, 40.f, 1, 100, 700, playerToColorMapper});
+    nodes.push_back(Node{gameWindow, 40.f, 2, 700, 100, playerToColorMapper});
+    nodes.push_back(Node{gameWindow, 40.f, 0, 400, 400, playerToColorMapper});
+    nodes.push_back(Node{gameWindow, 40.f, 0, 300, 300, playerToColorMapper});
+    nodes.push_back(Node{gameWindow, 40.f, 0, 500, 500, playerToColorMapper});
 }
 
 void Game::run()

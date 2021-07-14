@@ -1,6 +1,6 @@
 #include "SFML/Graphics.hpp"
 #include "Window.h"
-#include "playerToColorMapper.h"
+#include "PlayerToColorMapper.h"
 
 class Node
 {
