@@ -1,19 +1,20 @@
 #include "SFML/Graphics.hpp"
 #include "Window.h"
+#include "playerToColorMapper.h"
 
 class Node
 {
 private:
     Window& gameWindow;
-    //sprite
     sf::CircleShape shape;
-    //text
     int belongsTo;
-    int strength;
+    float size;
     float x;
     float y;
+    PlayerToColorMapper& playerToColorMapper;
 public:
-    Node(Window & gameWindow, float const spriteSize, int const belongsTo, int const strength, float const x, float const y);
+    Node(Window & gameWindow, float const size, int const belongsTo,
+     float const x, float const y, PlayerToColorMapper & playerToColorMapper);
     void update();
     void render();
 };

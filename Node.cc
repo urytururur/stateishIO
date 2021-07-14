@@ -1,15 +1,13 @@
 #include "Node.h"
 
-Node::Node(Window & gameWindow, float const spriteSize, int const belongsTo, int const strength, float const x, float const y):
-    gameWindow{gameWindow}, shape{spriteSize}, belongsTo{belongsTo}, strength{strength}, x{x}, y{y}
+Node::Node(Window & gameWindow, float const size, int const belongsTo, float const x, float const y, PlayerToColorMapper & playerToColorMapper):
+    gameWindow{gameWindow}, shape{size}, belongsTo{belongsTo}, x{x}, y{y}, playerToColorMapper{playerToColorMapper}
     {
-        shape.setFillColor(sf::Color::Green);
+        shape.setFillColor(playerToColorMapper.getColor(belongsTo));
     }
 
 void Node::update()
 {
-    x++;
-    y++;
 	shape.setPosition(x, y);
 }
 
