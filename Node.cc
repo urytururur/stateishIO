@@ -5,9 +5,9 @@ Node::Node(Window & gameWindow, float const size, int const belongsTo, float con
 
 void Node::update()
 {
-size += 1;
-if(size > 100) size = 100;
-shape.setOrigin(size, size);
+    size += 1;
+    if(size > 100) size = 100;
+    shape.setOrigin(size, size);
     shape.setRadius(size);
 	shape.setPosition(x, y);
     shape.setFillColor(playerToColorMapper.getColor(belongsTo));

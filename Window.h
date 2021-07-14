@@ -11,11 +11,16 @@ private:
     int height;
     std::string title;
     sf::RenderWindow window;
+    bool unhandeledMouseClick;
+    pair<float, float> mouseClickCoords;
 public:
     Window(int const width, int const height, std::string const& title);
     void checkIfClosed();
     void clear();
     void display();
+    bool getUnhandeledMouseClick() const;
+    pair<float, float> getMouseClickCoords() const;
+    void setMouseClickHandeled();
 
 sf::RenderWindow& getWindow();
 };
