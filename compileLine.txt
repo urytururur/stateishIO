@@ -1,0 +1,1 @@
+g++ -std=c++11 Game.cc Node.cc NodeBattle.cc PlayerToColorMapper.cc Window.cc main.cc -lsfml-window -lsfml-graphics -lsfml-network -lsfml-system -lsfml-audio
