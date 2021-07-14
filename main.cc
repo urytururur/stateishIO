@@ -1,7 +1,13 @@
-#include <SFML/Graphics.hpp>
-//hej
+//#include <SFML/Graphics.hpp>
+#include "Game.h"
+
 int main()
 {
+    Game game{};
+    game.run();
+
+    return 0;
+    /*
     sf::RenderWindow window(sf::VideoMode(200, 200), "SFML works!");
     sf::CircleShape shape(100.f);
     shape.setFillColor(sf::Color::Green);
@@ -21,4 +27,5 @@ int main()
     }
 
     return 0;
+    */
 }
