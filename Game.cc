@@ -14,6 +14,6 @@ void Game::run()
     while(true)
     {
         cout << "." << endl;
-        sf::sleep(sf::Time::asMilliseconds(1000));
+        sf::sleep(sf::milliseconds(16));
     }
 }
