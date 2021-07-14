@@ -5,7 +5,7 @@
 using namespace std;
 
 Game::Game():
-    gameWindow{} {}
+    gameWindow{800, 800, "StateishIO"} {}
 
 void Game::run()
 {

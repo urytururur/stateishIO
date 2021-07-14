@@ -1,5 +1,5 @@
 #include "Window.h"
-#include "SFML/Graphics"
+#include "SFML/Graphics.hpp"
 #include <string>
 
 using namespace std;
