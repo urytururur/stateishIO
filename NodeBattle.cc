@@ -1,21 +1,23 @@
 #include "NodeBattle.h"
 
 NodeBattle::NodeBattle(Node & attacker, Node & defender):
-    attacker{attacker}, defender{defender}, isDone{false}
+    attacker{attacker}, defender{defender}, isDone{false} {}
 
 void NodeBattle::update()
 {
     if(attacker.getSize() < 0)
     {
-        isDone = true;
+	attacker.resetSizeToZero();
+	isDone = true;
     }
     else if(defender.getSize() < 0)
     {
+	defender.resetSizeToZero();
         defender.setBelongsTo(attacker.getBelongsTo());
-        idDone = true;
+        isDone = true;
     }
-    attacker.shrink(1);
-    defender.shrink(1);
+    attacker.shrink(2);
+    defender.shrink(2);
 }
 
 /*

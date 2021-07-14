@@ -1,3 +1,5 @@
+#pragma once
+
 #include "SFML/Graphics.hpp"
 #include "Window.h"
 #include "PlayerToColorMapper.h"
@@ -21,4 +23,6 @@ public:
     void grow(int const amount);
     int getBelongsTo();
     void setBelongsTo(int const playerId);
+	float getSize() const;
+	void resetSizeToZero();
 };

@@ -1,11 +1,14 @@
 #include "Node.h"
 
 Node::Node(Window & gameWindow, float const size, int const belongsTo, float const x, float const y, PlayerToColorMapper & playerToColorMapper):
-    gameWindow{gameWindow}, shape{size}, belongsTo{belongsTo}, x{x}, y{y}, playerToColorMapper{playerToColorMapper} {}
+    gameWindow{gameWindow}, shape{size}, belongsTo{belongsTo}, x{x}, y{y}, playerToColorMapper{playerToColorMapper}, size{size} {}
 
 void Node::update()
 {
-    shape.setSize(size);
+size += 1;
+if(size > 100) size = 100;
+shape.setOrigin(size, size);
+    shape.setRadius(size);
 	shape.setPosition(x, y);
     shape.setFillColor(playerToColorMapper.getColor(belongsTo));
 }
@@ -33,4 +36,14 @@ int Node::getBelongsTo()
 void Node::setBelongsTo(int const playerId)
 {
     belongsTo = playerId;
+}
+
+float Node::getSize() const
+{
+	return size;
+}
+
+void Node::resetSizeToZero()
+{
+	size = 0;
 }
