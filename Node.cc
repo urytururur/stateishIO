@@ -10,6 +10,7 @@ void Node::update()
 {
     x++;
     y++;
+	shape.setPosition(x, y);
 }
 
 void Node::render()
