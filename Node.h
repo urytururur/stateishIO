@@ -17,4 +17,8 @@ public:
      float const x, float const y, PlayerToColorMapper & playerToColorMapper);
     void update();
     void render();
+    void shrink(int const amount);
+    void grow(int const amount);
+    int getBelongsTo();
+    void setBelongsTo(int const playerId);
 };

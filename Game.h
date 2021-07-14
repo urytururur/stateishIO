@@ -11,6 +11,7 @@ private:
     Window gameWindow;
     std::vector<Node> nodes;
     PlayerToColorMapper playerToColorMapper;
+    std::vector<NodeBattle> nodeBattles;
 public:
     Game();
     void run();
